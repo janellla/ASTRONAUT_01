@@ -23,7 +23,6 @@ public class CameraController : MonoBehaviour
     {
         transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z);
 
-        //for parallax
         float amountToMoveX = transform.position.x - lastXPos;
 
         farBackground.position = farBackground.position + new Vector3(amountToMoveX, 0f, 0f);
