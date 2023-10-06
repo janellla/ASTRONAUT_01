@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheckPoint;
     public LayerMask whatIsGround;
 
-    private Animator anim; 
+    private Animator anim;
     private SpriteRenderer theSR;
 
     // Start is called before the first frame update
@@ -29,20 +30,36 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatIsGround);
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            if(isGrounded){
+            if (isGrounded)
+            {
                 theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
             }
         }
 
-        if(theRB.velocity.x < 0) {
+        if (theRB.velocity.x < 0)
+        {
             theSR.flipX = true;
-        } else if (theRB.velocity.x > 0){
+        }
+        else if (theRB.velocity.x > 0)
+        {
             theSR.flipX = false;
         }
 
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "star")
+        {
+            transform.position = new Vector3(3, -1, 0);
+        }
+        if (collision.gameObject.tag == "door")
+        {
+            SceneManager.LoadScene("testing");
+        }
     }
 }
