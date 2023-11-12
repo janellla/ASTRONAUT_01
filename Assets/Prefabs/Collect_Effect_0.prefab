@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9108906119434928878}
   - component: {fileID: 4809243911241314660}
   - component: {fileID: 86181524114693884}
+  - component: {fileID: 1728759715948007163}
   m_Layer: 0
   m_Name: Collect_Effect_0
   m_TagString: star
@@ -136,7 +137,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0000019073486, y: -0.07787168}
@@ -152,3 +153,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66505814, y: 0.6873038}
   m_EdgeRadius: 0
+--- !u!114 &1728759715948007163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335673399052935388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598cbde356baeeb4897312fd1b9baa99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
